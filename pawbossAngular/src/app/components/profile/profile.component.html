@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <div class="wrapped-div">
+      <div class="profileHead">
+          <h2>Your Profile</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <form [formGroup]= "editProfileForm" (ngSubmit)= "updateUser()">
+      
+                <label>First Name:</label>
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="First name" required>
+                  <div class="error" *ngIf="editProfileForm.controls['firstName'].errors && editProfileForm.controls['firstName'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['firstName'].errors.required">last name is required.</mat-error>
+                  </div>
+              
+                <label>Last Name:</label>
+                  <input type="text" class="form-control" formControlName="lastName" placeholder="Last name" required>
+                  <div class="error" *ngIf="editProfileForm.controls['lastName'].errors && editProfileForm.controls['lastName'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['lastName'].errors.required">last name is required.</mat-error>
+                  </div>
+                
+                <label>Username:</label>
+                  <input type="text" class="form-control" formControlName="username" placeholder="Username"  required>
+                  <div class="error" *ngIf="editProfileForm.controls['username'].errors && editProfileForm.controls['username'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['username'].errors.required">Username is required.</mat-error>
+                  </div>
+                
+                <label>Email:</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Email" [pattern]=emailPattern required>
+                  <div class="error" *ngIf="editProfileForm.controls['email'].errors && editProfileForm.controls['email'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['email'].errors.required">Your email is required</mat-error>
+                    <mat-error  *ngIf="!editProfileForm.controls['email'].errors.required">Invalid email</mat-error>
+                  </div>
+                
+                <label>Contact Number:</label>
+                  <input type="text" class="form-control" formControlName="contactNo" placeholder="Contact number"  required minlength="10" maxlength="10">
+                  <div class="error" *ngIf="editProfileForm.controls['contactNo'].errors && editProfileForm.controls['contactNo'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['contactNo'].errors.required">Contact number is required.</mat-error>
+                    <mat-error  *ngIf="!editProfileForm.controls['contactNo'].errors.required">Invalid contact number</mat-error>
+                  </div>
+                
+                <label>Address:</label>
+                <input type="text" class="form-control" formControlName="address" placeholder="Address" required>
+                  <div class="error" *ngIf="editProfileForm.controls['address'].errors && editProfileForm.controls['address'].touched">
+                    <mat-error *ngIf="editProfileForm.controls['address'].errors.required">Address is required</mat-error>
+                  </div>
+
+                <div class="text-center">
+                    <label>Founded Pet Count: {{userDetails.adoptedPetsCount}}</label>
+                    <label>Adopted Pet Count: {{userDetails.foundedPetsCount}}</label>
+                    <label><span class="points">Total Points: {{userDetails.points}}</span></label>
+                </div>
+              
+                <div class="button">
+                  <input type="submit" value="Update" class="cta">
+                  <input type ="reset" value="Reset" (click)="reset()" class="cta" >
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<header>
+    <div class="container" >
+      <nav class="navbar navbar-expand-lg navbar-light" *ngIf="!loggedIn()"><a routerLink="pawboss/login"><img src="./assets/pawbossLogo.png"></a></nav>
+      <nav class="navbar navbar-expand-lg navbar-light" *ngIf="loggedIn()">
+          <a routerLink="pawboss/home"><img src="./assets/pawbossLogo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul *ngIf="loggedIn()" class="navbar-nav ms-auto">
+              <li class="nav-item"><a routerLink="pawboss/home" class="nav-link">Home</a></li>
+              <div>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello {{username}}</a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" routerLink="pawboss/profile">Edit Profile</a></li>
+                    <li><a class="dropdown-item" routerLink="pawboss/login" (click)="logOut()">Logout</a></li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+      </nav>
+    </div>
+  </header>
+  

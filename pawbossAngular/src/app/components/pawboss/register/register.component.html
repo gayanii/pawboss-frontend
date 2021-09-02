@@ -1,0 +1,76 @@
+<form [formGroup]= "registerForm" (ngSubmit)= "register()">
+  
+    <label *ngIf="registerForm.controls['firstName'].dirty">
+      First Name:
+    </label>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="First name" required>
+      <div class="error" *ngIf="registerForm.controls['firstName'].errors && registerForm.controls['firstName'].touched">
+        <mat-error *ngIf="registerForm.controls['firstName'].errors.required">last name is required.</mat-error>
+      </div>
+  
+    <label *ngIf="registerForm.controls['lastName'].dirty">
+      Last Name:
+    </label>
+      <input type="text" class="form-control" formControlName="lastName" placeholder="Last name" required>
+      <div class="error" *ngIf="registerForm.controls['lastName'].errors && registerForm.controls['lastName'].touched">
+        <mat-error *ngIf="registerForm.controls['lastName'].errors.required">last name is required.</mat-error>
+      </div>
+    
+    <label *ngIf="registerForm.controls['username'].dirty">
+      Username:
+    </label>
+      <input type="text" class="form-control" formControlName="username" placeholder="Username"  required>
+      <div class="error" *ngIf="registerForm.controls['username'].errors && registerForm.controls['username'].touched">
+        <mat-error *ngIf="registerForm.controls['username'].errors.required">Username is required.</mat-error>
+      </div>
+    
+    <label *ngIf="registerForm.controls['email'].dirty">
+      Email:
+    </label>
+    <input type="text" class="form-control" formControlName="email" placeholder="Email" [pattern]=emailPattern required>
+      <div class="error" *ngIf="registerForm.controls['email'].errors && registerForm.controls['email'].touched">
+        <mat-error *ngIf="registerForm.controls['email'].errors.required">Your email is required</mat-error>
+        <mat-error  *ngIf="!registerForm.controls['email'].errors.required">Invalid email</mat-error>
+      </div>
+    
+    <label *ngIf="registerForm.controls['contactNo'].dirty">
+      Contact number:
+    </label>
+      <input type="text" class="form-control" formControlName="contactNo" placeholder="Contact number"  required minlength="10" maxlength="10">
+      <div class="error" *ngIf="registerForm.controls['contactNo'].errors && registerForm.controls['contactNo'].touched">
+        <mat-error *ngIf="registerForm.controls['contactNo'].errors.required">Contact number is required.</mat-error>
+        <mat-error  *ngIf="!registerForm.controls['contactNo'].errors.required">Invalid contact number</mat-error>
+      </div>
+    
+    <label *ngIf="registerForm.controls['address'].dirty">
+      Address:
+    </label>
+    <input type="text" class="form-control" formControlName="address" placeholder="Address" required>
+      <div class="error" *ngIf="registerForm.controls['address'].errors && registerForm.controls['address'].touched">
+        <mat-error *ngIf="registerForm.controls['address'].errors.required">Address is required</mat-error>
+      </div>
+  
+    <label *ngIf="registerForm.controls['password'].dirty">
+      Password:
+    </label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" required minlength="4">
+      <div class="error" *ngIf="registerForm.controls['password'].errors && registerForm.controls['password'].touched">
+        <mat-error *ngIf="registerForm.controls['password'].errors.required">Your password is required</mat-error>
+        <mat-error  *ngIf="!registerForm.controls['password'].errors.required">Mininum 4 charactors needed</mat-error>
+      </div>
+    
+    <label *ngIf="registerForm.controls['confirmPassword'].dirty">
+      Confirm Password:
+    </label>
+      <input type="password" class="form-control" formControlName="confirmPassword" placeholder="confirm Password" required>
+      <div class="error" *ngIf="registerForm.controls['confirmPassword'].errors && registerForm.controls['confirmPassword'].touched">
+        <mat-error *ngIf="registerForm.controls['confirmPassword'].errors.required">Your confirm password is required</mat-error>
+      </div>
+      <mat-error *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.controls['password'].value != registerForm.controls['confirmPassword'].value" class="error">Password must match</mat-error> 
+  
+    <div class="button">
+      <input type="submit" value="Sign Up" class="cta">
+      <input type ="reset" value="Reset" class="cta" >
+    </div>
+  </form>
+  

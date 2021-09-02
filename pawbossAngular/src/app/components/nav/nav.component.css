@@ -1,0 +1,30 @@
+header {
+    background: #c8cfd4;
+}
+              
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item {
+    color:white !important;
+    font-size: 150%;
+}
+
+.nav-item a, .dropdown-toggle{
+    margin-right: 20px;
+    color: black;
+    font-size: 120%;
+    font-weight: bold;
+}  
+
+.nav-item a:hover{
+    color: #C33DB5;
+}  
+
+@media screen and (max-width: 500px) {
+    .ms-auto {
+        margin-left: 3% !important;
+    }
+}
+    

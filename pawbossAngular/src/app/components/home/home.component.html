@@ -1,0 +1,169 @@
+<div class="wrapper">
+    <div class="row">
+        <h1 class="m-4 fw-bold">Adopt Me</h1>
+        <div class="pet-details">
+            <div *ngFor="let pet of notAdoptedPetDetails ; let k = index" class="col-sm-6 col-md-4 col-lg-3 petCards">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="clicked(pet.id, pet.area, dateFormat(pet.foundedOn), pet.foundedById, pet.description, pet.isAdopted)">
+                    <img [src]="pet.identityPhoto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">From: {{pet.area}}</h5>
+                        <h4><b>Founded Date: </b>{{dateFormat(pet.foundedOn)}}</h4>
+                        <p class="card-text"><b>Description: </b>{{pet.description}}</p>
+                        <div class="allBtn">
+                            <button class="btn intrestedButton" data-bs-toggle="modal" data-bs-target="#exampleModal">I'm Intrested&nbsp;<i class="material-icons">pets</i></button>
+                            <button *ngIf="isAdmin()" class="btn btn-warning updateButton" (click)="clicked(pet.id, pet.area, dateFormat(pet.foundedOn), pet.foundedById, pet.description, pet.isAdopted)" data-bs-toggle="modal" data-bs-target="#updateModal"><i class="material-icons">update</i></button>
+                            <button *ngIf="isAdmin()" class="btn btn-danger deleteButton" (click)="deleteButtonClick(pet.id, k)" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="material-icons">delete</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="m-4 fw-bold">Adopted</h1>
+        <div class="pet-details">
+            <div *ngFor="let petAdopt of adoptedPetDetails" class="col-sm-6 col-md-4 col-lg-3 petCards">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#cardModal" (click)="clicked(petAdopt.id, petAdopt.area, dateFormat(petAdopt.foundedOn), petAdopt.foundedById, petAdopt.description, petAdopt.isAdopted)">
+                    <img [src]="petAdopt.identityPhoto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">From: {{petAdopt.area}}</h5>
+                        <h4><b>Founded Date: </b>{{dateFormat(petAdopt.foundedOn)}}</h4>
+                        <p class="card-text"><b>Description: </b>{{petAdopt.description}}</p>
+                        <p class="card-text"><b>Adopted By: </b>{{petAdopt.adoptedUser}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Im intrested modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Hey {{username}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                    aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex">
+                        <!-- Dog animation -->
+                        <div class="dogContainer">
+                            <div class="dog">
+                                <div class="dog-head">
+                                    <div class="dog-ears ears-left"></div>
+                                    <div class="dog-ears ears-right"></div>
+                                    <div class="dog-eyes"></div>
+                                    <div class="dog-mouth">
+                                        <div class="dog-nose"></div>
+                                        <div class="dog-tongue"></div>
+                                    </div>
+                                </div>
+                                <div class="dog-tail"></div>
+                                <div class="dog-body">
+                                    <div class="dog-foot"></div>
+                                </div>
+                                <div class="heart-shape"></div>
+                            </div>
+                        </div>
+                        <div class="thankYou fw-bold">Thank You!<br/> Paw hugs&nbsp;<i class="material-icons">pets</i></div>
+                    </div>
+                    <h1 class="emailmsg">Do you want to send an email to admin?</h1>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="emailSend(username)">Send Email</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="deleteModalLabel">Hey {{username}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex">
+                        <div class="deleteText fw-bold">Do you need to remove this pet permanently?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="deletePet()" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Update Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="updateModalLabel">Hey {{username}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex">
+                        <div class="wrapper">
+                            <div class="wrapped-div">
+                                <div class="profileHead">
+                                  <h2>Update Me</h2>
+                                </div>
+                                <div class="formRow">
+                                  <div class="col-md-10 offset-md-1">
+                                    <form [formGroup]= "updatePetForm">
+      
+                                        <label>Area:</label>
+                                          <input type="text" class="form-control" formControlName="area" placeholder="Area" required>
+                                          <div class="error" *ngIf="updatePetForm.controls['area'].errors && updatePetForm.controls['area'].touched">
+                                            <mat-error *ngIf="updatePetForm.controls['area'].errors.required">area is required.</mat-error>
+                                          </div>
+                                        
+                                        <label>Description:</label>
+                                          <input type="text-area" class="form-control" formControlName="description" placeholder="description"  required>
+                                          <div class="error" *ngIf="updatePetForm.controls['description'].errors && updatePetForm.controls['description'].touched">
+                                            <mat-error *ngIf="updatePetForm.controls['description'].errors.required">description is required.</mat-error>
+                                          </div>
+
+                                        <label>Is Adopted:</label>
+                                            <input type="radio" class="radio" formControlName="isAdopted" value="true" (change)="radioChange($event)">Yes
+                                            <input type="radio" class="radio" formControlName="isAdopted" value="false" (change)="radioChange($event)" [checked]="true">No
+            
+                                        <label>Adopted By:</label>
+                                        <select class="form-control" formControlName="adopterId" (change)="adoptedByChange($event)" required>
+                                            <option></option>
+                                            <option *ngFor="let user of allUserDetails" value={{user.id}}>{{user.username}}</option>
+                                        </select>
+
+                                        <div class="updateButton">
+                                          <input type="submit" (click)="updatePetDetails()" value="Update" class="cta">
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card Modal -->
+        <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="cardModalLabel">Hey {{username}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex">
+                            <div>
+                                <p><b>From: </b>{{area}}</p>
+                                <p><b>Founded Date: </b>{{foundedOn}}</p>
+                                <p><b>Description: </b>{{description}}</p>
+                                <p><b>Founded By: </b>{{foundedBy}}</p>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn add" (click)="addNew()"><i class="material-icons icon-add">add</i></button>
+    </div>
+</div>
+

@@ -1,0 +1,210 @@
+.pet-details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.petCards {
+    float: left;
+}
+
+.card {
+    padding: 16px;
+    background-color: #f1f1f1;
+    margin: 5%;
+}
+
+.card:hover {
+    background-color: #c7c6c6;
+}
+
+.card-title {
+    font-size: xx-large;
+}
+
+@media screen and (min-width: 575px) {
+    .card-img-top {
+        height: 300px;
+        object-fit: contain;
+    }
+}
+
+.btn {
+    font-size: x-large;
+}
+
+.intrestedButton, h1 {
+    font-weight: bold;
+}
+
+.updateButton, .deleteButton {
+    padding: 2px;
+}
+
+.btn {
+    color: white;
+    margin: 1%;
+}
+
+.intrestedButton {
+    background: #C33DB5;
+}
+
+.allBtn {
+    width:100%;
+    text-align: center;
+}
+
+.dogContainer {
+    margin: 3% 10% 0 3%;
+}
+
+.thankYou {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 150%;
+}
+
+@media screen and (max-width: 350px) {
+    .dogContainer {
+        margin: 3% 10% 0 -5%;
+    }
+}
+
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* autoprefixer: ignore next */ -webkit-box-orient: vertical;
+}
+
+.deleteText {
+    font-size: 150%;
+}
+
+.modal-footer {
+    font-size: 120%;
+}
+
+.row {
+    margin:4%;
+}
+
+label {
+    display: block;
+    color: black;
+    margin-top: 5px;
+    font-size: x-large;
+    font-weight: bold;
+}
+    
+    input {
+        font-size: x-large;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+
+    .cta {
+        background: #C33DB5;
+        color: white;
+        margin: auto;
+        margin-top: 30px;
+        width: 50%;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-color: #C33DB5; 
+        border-radius: 30px;
+        font-size: 30px;
+        padding: 0px;
+    }
+
+
+    strong {
+        display: block;
+    }
+
+form {
+    margin-top: -10%;
+}
+
+.error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.radio {
+    width: 20%;
+    margin-bottom: 25px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .wrapped-div {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .formRow {
+      padding: 15%;
+  }
+  
+.profileHead{
+    text-align: center;
+}
+
+  .profileHead h2 {
+    text-align: center;
+    font-size: 130%;
+    font-weight: 600;
+    display:inline-block;
+    padding: 10% 10% 1%;
+    color: #000;
+    border-bottom: 4px solid #C33DB5;
+  }
+
+option, select {
+    font-size: 100%;
+}
+
+.updateButton {
+    text-align: center;
+}
+
+.emailmsg {
+    text-align: center;
+    color: #C33DB5;
+}
+
+.add {
+    border-radius: 50%;
+    width: 60px;
+    position: fixed;
+    top: 80%;
+    right: 2%;
+    background: #C33DB5;
+}
+
+.icon-add {
+    padding-top: 10px;
+}

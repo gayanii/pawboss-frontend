@@ -1,0 +1,85 @@
+label {
+    display: block;
+    color: black;
+    margin-top: 5px;
+    font-size: x-large;
+    font-weight: bold;
+}
+    
+    input {
+        font-size: x-large;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+
+    .cta {
+        background: #C33DB5;
+        color: white;
+        margin: auto;
+        margin-top: 30px;
+        width: 50%;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-color: #C33DB5; 
+        border-radius: 30px;
+        font-size: 30px;
+        padding: 0px;
+    }
+
+
+    strong {
+        display: block;
+    }
+
+form {
+    margin-top: -10%;
+}
+
+.error {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .wrapped-div {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .row {
+      padding: 15%;
+  }
+  
+.profileHead{
+    text-align: center;
+}
+
+  .profileHead h2 {
+    text-align: center;
+    font-size: 130%;
+    font-weight: 600;
+    display:inline-block;
+    padding: 10% 10% 1%;
+    color: #000;
+    border-bottom: 4px solid #C33DB5;
+  }
+
+
