@@ -1,0 +1,286 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/alertifyjs/build/css/alertify.min.css";
+@import "../node_modules/alertifyjs/build/css/themes/bootstrap.rtl.min.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "KermelW00-Regular", "Helvetica Neue", sans-serif; font-size: x-large; overflow-x:hidden;}
+@font-face {font-family: "KermelW00-Regular"; src: 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.eot"); src: 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/c5a4b09699aed4fe9b22a8cfdd7674b3.svg#KermelW00-Regular") format("svg"); }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body,
+html {
+	width: 100%;
+	height: 100%;
+    position: relative;
+}
+.dog {
+	width: 160px;
+	height: 186px;
+	position: relative;
+}
+@keyframes head {
+	0% {
+		transform: rotate(0deg);
+	}
+	30% {
+		transform: rotate(0deg);
+	}
+	40% {
+		transform: rotate(-20deg);
+	}
+	80% {
+		transform: rotate(-20deg);
+	}
+	90% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+.dog-head {
+	width: 100px;
+  height: 90px;
+  position: absolute;
+	z-index: 5;
+  top: 30px;
+  left: calc(50% - 50px);
+  background-color: #8f5d2b;
+  border-radius: 50%;
+	animation: head 6s linear infinite;
+}
+.dog-head:before,
+.dog-head:after {
+  content: "";
+  width: 79px;
+  height: 50px;
+  position: absolute;
+  z-index: 5;
+  top: 44px;
+  background-color: #8f5d2b;
+  border-radius: 50%;
+}
+.dog-head:before {
+  left: -7px;
+  transform: rotate(50deg);
+}
+.dog-head:after {
+  right: -7px;
+  transform: rotate(-49deg);
+}
+.dog-mouth {
+	width: 60px;
+  height: 35px;
+  background-color: #c38e4f;
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  z-index: 10;
+  border-radius: 50%;
+}
+.dog-mouth:after {
+	content: "";
+	width: 10px;
+  height: 40px;
+  background-color: #c38e4f;
+  position: absolute;
+  bottom: 30px;
+  left: 24px;
+  z-index: 10;
+  border-radius: 20px;
+}
+.dog-nose {
+	width: 16px;
+	height: 10px;
+	position: absolute;
+	top: 8px;
+	left: calc(50% - 8px);
+	background-color: #000;
+	border-radius: 50%;
+}
+@keyframes tongue {
+	0% {
+		height: 10px;
+	}
+	30% {
+		height: 10px;
+	}
+	40% {
+		height: 20px;
+	}
+	60% {
+		height: 10px;
+	}
+	80% {
+		height: 20px;
+	}
+	90% {
+		height: 10px;
+	}
+	100% {
+		height: 10px;
+	}
+}
+.dog-tongue {
+  width: 20px;
+  height: 10px;
+  position: absolute;
+  top: 24px;
+  left: calc(50% - 10px);
+  background-color: #ea5693;
+  border-radius: 0 0 10px 10px;
+	animation: tongue 4s linear infinite;
+}
+.dog-eyes {
+	width: 10px;
+  height: 16px;
+  background-color: #000;
+  position: absolute;
+  top: 52px;
+  left: 28px;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 33px 0px 0px #000;
+}
+.dog-eyes:after {
+  content: "";
+  width: 92px;
+  height: 50px;
+  position: absolute;
+  top: -50px;
+  left: -24px;
+  background-color: #8f5d2b;
+  border-radius: 50%;
+}
+.dog-ears {
+  width: 80px;
+	height: 50px;
+	position: absolute;
+	z-index: 0;
+	top: -2px;
+	border-radius: 150px 0 150px 0;
+	background-color: #8f5d2b;
+}
+.dog-ears:after {
+	content: "";
+  width: 50px;
+	height: 30px;
+	position: absolute;
+	z-index: 0;
+	top: 8px;
+	left: 20px;
+	border-radius: 150px 0 150px 0;
+	transform: rotate(-176deg);
+	background-color: #c38e4f;
+}
+.ears-left {
+	left: -22px;
+	transform: rotate(-105deg);
+}
+.ears-right {
+	right: -22px;
+	transform: rotate(-22deg);
+}
+.dog-body {
+  width: 54px;
+  height: 60px;
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 35px);
+  background-color: #433021;
+  border-radius: 49px 0 0 20px;
+}
+.dog-body:before {
+  content: "";
+  width: 50px;
+  height: 60px;
+  position: absolute;
+  top: 3px;
+  left: calc(50% - 17px);
+  background-color: #8f5d2b;
+  border-radius: 100px 100px 0 0;
+}
+.dog-body:after {
+  content: "";
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  top: 32px;
+  left: 28px;
+  background-color: #433021;
+  border-radius: 100px 100px 0 0;
+}
+.dog-foot {
+	width: 20px;
+  height: 13px;
+  position: absolute;
+  z-index: 5;
+  bottom: -3px;
+  left: 8px;
+  background-color: #c38e4f;
+  border-radius: 10px 10px 0 0;
+	box-shadow: 33px 0 0 #c38e4f;
+}
+@keyframes tail {
+	0% {
+  	transform: rotate(-47deg);
+	}
+	100% {
+  	transform: rotate(-57deg);
+	}
+}
+.dog-tail {
+	width: 10px;
+  height: 50px;
+  position: absolute;
+  top: 120px;
+  left: calc(50% - 45px);
+  background-color: #bc772f;
+  transform: rotate(-47deg);
+  border-radius: 10px 0 0 0px / 50px 0 0 0px;
+	animation: tail .08s infinite alternate;
+}
+
+
+.heart-shape{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: rgba(255,0,0);
+}
+.heart-shape:before,
+.heart-shape:after{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  content: '';
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgba(255,0,0);
+}
+.heart-shape:before{
+  bottom: 0px;
+  left: -15px;
+}
+.heart-shape:after{
+  top: -15px;
+  right: 0px;
+}
